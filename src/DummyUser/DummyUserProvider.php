@@ -36,27 +36,21 @@ class DummyUserProvider implements LaravelUserProvider
 
     public function retrieveById($identifier)
     {
-        $user_data = $this->cache->get('users.' . $identifier);
-        dump('by_id');
-        dump($user_data);
-        die;
-        if (empty($user_data)) {
-            return null;
-        }
+        $user = $this->cache->get('users.' . $identifier);
 
-        $model = $this->getModelName();
-
-        return new $model($user_data);
+        return $user instanceof Authenticatable ? $user : null;
     }
 
     public function retrieveByToken($identifier, $token)
     {
-        throw new RuntimeException('Not implemented yet');
+        // Not implemented yet
+
     }
 
     public function updateRememberToken(Authenticatable $user, $token)
     {
-        throw new RuntimeException('Not implemented yet');
+        // Not implemented yet
+
     }
 
     public function retrieveByCredentials(array $credentials)

@@ -18,6 +18,10 @@ class DummyUserServiceProvider extends ServiceProvider
             $cache = $app->make(CacheContract::class);
 
             $this->app['events']->listen(Login::class, function ($event) use ($config, $cache) {
+                if (! $event->user instanceof Authenticatable) {
+                    return false;
+                }
+
                 $id = $event->user->id;
                 if (! $id) {
                     return false;
@@ -26,6 +30,10 @@ class DummyUserServiceProvider extends ServiceProvider
             });
 
             $this->app['events']->listen(Logout::class, function ($event) use ($config, $cache) {
+                if (! $event->user instanceof Authenticatable) {
+                    return false;
+                }
+
                 $id = $event->user->id;
                 if (! $id) {
                     return false;
