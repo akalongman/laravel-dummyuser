@@ -1,7 +1,7 @@
 # Laravel 5.x dummy user provider
 
 [![Code Quality](https://img.shields.io/scrutinizer/g/akalongman/laravel-dummyuser.svg?style=flat-square)](https://scrutinizer-ci.com/g/akalongman/laravel-dummyuser/?branch=master)
-[![Latest Stable Version](https://img.shields.io/github/release/akalongman/laravel-dummyuser.svg?style=flat-square)](https://github.com/akalongman/laravel-dummyuser/releases)
+[![Latest Stable Version](https://img.shields.io/github/tag/akalongman/laravel-dummyuser.svg?style=flat-square)](https://github.com/akalongman/laravel-dummyuser/tags)
 [![Total Downloads](https://img.shields.io/packagist/dt/Longman/laravel-dummyuser.svg)](https://packagist.org/packages/longman/laravel-dummyuser)
 [![Downloads Month](https://img.shields.io/packagist/dm/Longman/laravel-dummyuser.svg)](https://packagist.org/packages/longman/laravel-dummyuser)
 [![License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
