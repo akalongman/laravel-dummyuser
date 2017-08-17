@@ -30,3 +30,32 @@ After updating composer, add the DummyUserServiceProvider to the providers array
 ```php
 Longman\LaravelDummyUser\DummyUserServiceProvider::class,
 ```
+
+In the `config/auth.php` file you should add dummy guard in the `guards` array:
+
+```php
+'guards' => [
+    . . .
+
+    'dummy' => [
+        'driver' => 'session',
+        'provider' => 'dummy',
+    ],
+]
+```
+
+and provider in the `providers` array
+
+```php
+'providers' => [
+    . . .
+
+    'dummy' => [
+        'driver' => 'dummy',
+        'lifetime' => 3600, // Cache lifetime in minutes
+    ],
+]
+```
+
+Now you can specify default guard `dummy` or use like `Auth::guard('dummy')->login($user)`
+
