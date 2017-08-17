@@ -8,7 +8,7 @@ use Illuminate\Auth\Events\Logout;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Contracts\Cache\Repository as CacheContract;
 use Illuminate\Contracts\Foundation\Application;
-use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use Illuminate\Support\ServiceProvider;
 
 class DummyUserServiceProvider extends ServiceProvider
 {
