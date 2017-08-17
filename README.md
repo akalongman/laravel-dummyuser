@@ -8,6 +8,10 @@
 
 Dummy (without database) user authorization for Laravel 5.x
 
+## Table of Contents
+- [Installation](#installation)
+- [Usage](#usage)
+
 ## Installation
 
 Install this package through [Composer](https://getcomposer.org/).
@@ -63,5 +67,49 @@ and provider in the `providers` array
 ]
 ```
 
-Now you can specify default guard `dummy` or use like `Auth::guard('dummy')->login($user)`
+## Usage
 
+You can specify default guard `dummy` in the `config/auth.php` file (`defaults` array) and use just `Auth::` calls, or use `Auth::guard('dummy')`, like `Auth::guard('dummy')->login($user)`
+
+For authenticating users, you need some unique identifier. You can use remote id or something like `md5('some-unique-mail@mail.com')`
+
+In User model you need to add `id` in fillable array. And if you use string `id` also add `protected $keyType = 'string';` field.
+
+Usage example:
+
+```php
+<?php
+// get some user data from Restful service
+$user_data = get_user_data_from_service();
+$email = $user_data['email'];
+
+$user = new User(['id' => md5($email), 'name' => $user_data['name'], ...]);
+
+// Log in user
+Auth::login($user);
+
+```
+
+
+## TODO
+
+write tests
+
+## Troubleshooting
+
+If you like living on the edge, please report any bugs you find on the
+[laravel-dummyuser issues](https://github.com/akalongman/laravel-dummyuser/issues) page.
+
+## Contributing
+
+Pull requests are welcome.
+See [CONTRIBUTING.md](CONTRIBUTING.md) for information.
+
+## License
+
+Please see the [LICENSE](LICENSE.md) included in this repository for a full copy of the MIT license,
+which this project is licensed under.
+
+## Credits
+
+- [Avtandil Kikabidze aka LONGMAN](https://github.com/akalongman)
