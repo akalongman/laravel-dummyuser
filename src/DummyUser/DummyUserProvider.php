@@ -44,13 +44,11 @@ class DummyUserProvider implements LaravelUserProvider
     public function retrieveByToken($identifier, $token)
     {
         // Not implemented yet
-
     }
 
     public function updateRememberToken(Authenticatable $user, $token)
     {
         // Not implemented yet
-
     }
 
     public function retrieveByCredentials(array $credentials)

@@ -44,7 +44,6 @@ class DummyUserServiceProvider extends ServiceProvider
 
             return new DummyUserProvider($cache, $config);
         });
-
     }
 
 }
