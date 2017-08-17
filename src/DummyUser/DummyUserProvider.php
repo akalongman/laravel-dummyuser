@@ -29,11 +29,6 @@ class DummyUserProvider implements LaravelUserProvider
         $this->config = $config;
     }
 
-    protected function getModelName()
-    {
-        return isset($this->config['model']) ? $this->config['model'] : \App\User::class;
-    }
-
     public function retrieveById($identifier)
     {
         $user = $this->cache->get('users.' . $identifier);
